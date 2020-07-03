@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/solarized.css" id="theme">
+	<link rel="stylesheet" href="dist/theme/c2c.css" id="theme">
 
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -19,39 +19,39 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h2>MapFish Print 3</h2>
-				<h3>Karten Templates und PDF</h3>
+				<h1>MapFish Print 3</h1>
+				<h3>Maps, Templates and PDF</h3>
 
 				<p>Marion Baumgartner</p>
 				<img src="img/camptocamp_logo_2020_rgb.svg" height="50">
 			</section>
 			<section>
-				<h3>Über Camptocamp</h3>
+				<h3>About Camptocamp</h3>
 				<div class="r-stack">
-					<img src="img/C2C_Structure.png" class="fragment">
+					<img src="img/C2C_Structure.png" class="r-frame">
 					<img src="img/hiring.png" class="fragment">
 				</div>
 			</section>
 			<section>
 				<section>
-					<h3> Drucken / PDF Export</h3>
+					<h3> Printing Maps</h3>
 					<ul>
-						<li class="fragment">Eine essentielle Anforderung in Web-maping lösungen</li>
-						<li class="fragment">Eine Liste von Ansprüchen welche zu erfüllt sind:</li>
+						<li class="fragment">An essential requirement in web mapping solutions</li>
+						<li class="fragment">A list of requirements to fulfill:</li>
 						<ul class="fragment">
-							<li>gute Auflösung</li>
-							<li>Formate A4, A3, A0, ...</li>
-							<li>Templates und Layouts</li>
-							<li>verschiedene Geo-daten</li>
+							<li>resolution</li>
+							<li>Format A4, A3, A0, ...</li>
+							<li>Templates and layouts</li>
+							<li>different geo-data</li>
 							<li>...</li>
 						</ul>
 					</ul>
 				</section>
 				<section>
-					<h4>CSS sylesheets</h4>
+					<h4>CSS Stylesheets</h4>
 				</section>
 				<section>
-					<h4>Javascript im Beispiel von OLv6</h4>
+					<h4>Javascript base in OLv6</h4>
 				</section>
 				<section>
 					<h4>WKHTMLTOPDF</h4>
@@ -60,57 +60,212 @@
 			<section>
 				<h3>Map Fish Print</h3>
 				<ul>
-					<li>Java Bibliotheke & web applikation</li>
-					<li>Erstelleung von PDF reports mit Katern und Komponenten</li>
+					<li>Java Library & Web application</li>
+					<li>Creation of a PDF with map components</li>
 				</ul>
-				<div class="r-stack">
-					<img src="img/example-reports.png" height="350" class="fragment">
+				<div>
+					<div class="fragment" style="position: absolute; top: 0px; left: 50px;">
+						<img src="img/PrintExampleMapReportSZ.png" height=300>
+					</div>
+					<div class="fragment" style="position: absolute; top: 0px; right: 50px;">
+						<img src="img/PrintExampleLegendSZ.png" height=300>
+					</div>
+					<div class="fragment">
+						<img src="img/PrintExampleTableBL.png" height=300>
+					</div>
 				</div>
-
 			</section>
 			<section>
-				<h3>Architektur</h3>
+				<h3>Architecture</h3>
 				<img src="img/architecture.png">
 			</section>
 			<section>
 				<section>
-					<h3>Der Prozess</h3>
+					<h3>The Process</h3>
 					<div class="r-stack">
-						<img class="fragment" src="img/process-configuration1.png">
+						<img src="img/process-configuration1.png">
 						<img class="fragment" src="img/process-configuration2.png">
 						<img class="fragment" src="img/process-configuration3.png">
 					</div>
-					<!--<ul>
-						<li>Konfiguration: config.yaml + report.jrxml</li>
-						<li>POST request mit dem json</li>
-						<li>resultiert in dem pdf</li>
-					</ul>-->
 				</section>
+			</section>
+			<section>
 				<section>
 					<h3>Configuration: config.yaml</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|6|7|9-14|16-18">
+						throwErrorOnExtraParameters: true
+						transparentTileErrorColor: "rgba(78, 78, 255, 125)"
+						opaqueTileErrorColor: "rgba(255, 155, 155, 0)"
+
+						templates:
+						  A4 portrait: !template
+							reportTemplate: report.jrxml
+							attributes:
+							  title: !string
+								default: "Countries"
+							  map: !map
+								maxDpi: 400
+								width: 780
+								height: 330
+							processors:
+							- !reportBuilder
+							  directory: '.'
+							- !createMap {}
+					</code></pre>
 				</section>
 				<section>
 					<h3>Configuration: report.jrxml</h3>
+					<div class="r-stack">
+						<img src="img/report_jrxml.png" class="fragment">
+						<img src="img/jaspersoft-studio.png" class="fragment">
+					</div>
+				</section>
+			</section>
+			<section>
+				<h3>The Process</h3>
+				<img src="img/process-configuration2.png">
+			</section>
+			<section>
+				<h3>JSON Request</h3>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|2|3|4|5|6-29">
+						{
+							"layout": "A4 portrait",
+							"outputFormat": "pdf",
+							"attributes": {
+								"map": {
+									"longitudeFirst": true,
+									"center": [5, 45],
+									"scale": 100000000,
+									"projection": "EPSG:4326",
+									"dpi": 72,
+									"rotation": 0,
+									"layers": [{
+										"type": "geojson",
+										"geoJson": "file://countries.geojson",
+										"style": {
+											"version": "2",
+											"*": {
+												"symbolizers": [{
+													"type": "polygon",
+													"fillColor": "#5E7F99",
+													"fillOpacity": 1,
+													"strokeColor": "#CC1D18",
+													"strokeOpacity": 1,
+													"strokeWidth": 1
+												}]
+											}
+										}
+									}]
+								}
+							}
+						}
+					</code></pre>
+			</section>
+			<section>
+				<h3>The Process</h3>
+				<img src="img/process-configuration3.png">
+			</section>
+			<section>
+				<section>
+					<h3>Setting it all together in a Web-Application</h3>
+					<div class="r-stack">
+						<img src="img/application-server.png">
+						<img src="img/application-server-docker.png" class="fragment">
+					</div>
 				</section>
 				<section>
-					<h3>JSON Request<h3>
+					<h3>Using the application in a ready Docker image</h3>
+					<ol>
+						<li> clone the repo:
+							<pre><code class="hljs">$ git clone git@github.com:marionb/mfp_examples.git</code></pre>
+						</li>
+						<li>to get started - in the cloned folder run:
+							<pre><code class="hljs">$ make serve</code></pre>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Creating the PDF</h3>
+					<ul>
+						<li>
+							Using a Browser:
+							<a href="http://localhost:8680/" >http://localhost:8680/</a>
+						</li>
+						<li>
+							Using a bash command:
+							<pre data-id="code-animation" ><code class="hljs" data-trim data-line-numbers>
+								$ curl -XPOST -d @requestData.json \
+								-H " Content-Type: application/json" \
+								http://localhost:8680/print/default/buildreport.pdf \
+								-o ExpectedResult.pdf 
+							</code></pre>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section>
-				<h3>
-					Erweiterbar dir die Architektur
-				</h3>
+				<section>
+					<h2>More Options</h2>
+				</section>
+				<section>
+					<h3>Attribute Tables</h3>
+					<img src="img/PrintExampleTableBL.png" class="r-frame">
+				</section>
+				<section>
+					<h3>
+						Data-sources
+						<br />
+						(e.g. arbitrary number of maps in a report)
+					</h3>
+					<img src="img/datasource-example.png" height="500" class="r-frame">
+				</section>
+				<section>
+					<h3>Charts</h3>
+					<img src="img/plots.png" class="r-frame">
+				</section>
+				<section>
+					<h3>External data-sources (databases)</h3>
+					<img src="img/external-datasources.png">
+				</section>
+				<section>
+					<h3>Client side support</h3>
+					<img src="img/ngeo.png" height="500" class="r-frame">
+				</section>
 			</section>
 			<section>
-				<h1 class="beefy">MapFish Print 3</h1>
-				<p><span class="fat">MapFish Print auf GitHub:</span><br /><a
-						href="https://github.com/mapfish/mapfish-print"
-						target="_blank">github.com/mapfish/mapfish-print</a></p>
-				<p>&nbsp;</p>
-				<p><span class="fat">UND</span></p>
-				<p>
-					<a href="https://github.com/marionb" target="_blank"><img src="img/github.png"></a> @marionb
-				</p>
+				<h2>Plugable Architecture</h2>
+				<dev>
+					<img src="img/Plugable.png" height="500" class="r-frame">
+				</dev>
+			</section>
+			<section>
+				<h1>MapFish Print 3</h1>
+				<h5>Some Links</h5>
+				</p><img src="img/github.png"></p>
+				<ul class="center">
+					<li><a href="https://github.com/mapfish/mapfish-print" target="_blank">
+							github.com/mapfish/mapfish-print
+						</a></li>
+					<li>The Docu: <br />
+						<a href="http://mapfish.github.io/mapfish-print-doc/index.html" target="_blank">
+							http://mapfish.github.io/mapfish-print-doc/index.html
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/mapfish/mapfish-print/tree/master/examples/src/test/resources/examples"
+							target="_blank">
+							A box of examples:
+						</a>
+					</li>
+					<li>
+						<a href="https://marionb.github.io/mfp_AGIT_2020/mfp_AGIT_2020.html" target="_blank">
+							This presentation</a>
+					</li>
+				</ul>
+				<!--<a href="https://github.com/marionb" target="_blank">@marionb</a>-->
+			</section>
+			<section>
+				<img src="img/camptocamp_logo_square_moto_2020_rgb.svg">
 			</section>
 		</div>
 	</div>
