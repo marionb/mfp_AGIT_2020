@@ -1,40 +1,135 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+	<title>MapFish Print 3</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/solarized.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>MapFish Print 3</h2>
+				<h3>Karten Templates und PDF</h3>
+
+				<p>Marion Baumgartner</p>
+				<img src="img/camptocamp_logo_2020_rgb.svg" height="50">
+			</section>
+			<section>
+				<h3>Über Camptocamp</h3>
+				<div class="r-stack">
+					<img src="img/C2C_Structure.png" class="fragment">
+					<img src="img/hiring.png" class="fragment">
+				</div>
+			</section>
+			<section>
+				<section>
+					<h3> Drucken / PDF Export</h3>
+					<ul>
+						<li class="fragment">Eine essentielle Anforderung in Web-maping lösungen</li>
+						<li class="fragment">Eine Liste von Ansprüchen welche zu erfüllt sind:</li>
+						<ul class="fragment">
+							<li>gute Auflösung</li>
+							<li>Formate A4, A3, A0, ...</li>
+							<li>Templates und Layouts</li>
+							<li>verschiedene Geo-daten</li>
+							<li>...</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<h4>CSS sylesheets</h4>
+				</section>
+				<section>
+					<h4>Javascript im Beispiel von OLv6</h4>
+				</section>
+				<section>
+					<h4>WKHTMLTOPDF</h4>
+				</section>
+			</section>
+			<section>
+				<h3>Map Fish Print</h3>
+				<ul>
+					<li>Java Bibliotheke & web applikation</li>
+					<li>Erstelleung von PDF reports mit Katern und Komponenten</li>
+				</ul>
+				<div class="r-stack">
+					<img src="img/example-reports.png" height="350" class="fragment">
+				</div>
+
+			</section>
+			<section>
+				<h3>Architektur</h3>
+				<img src="img/architecture.png">
+			</section>
+			<section>
+				<section>
+					<h3>Der Prozess</h3>
+					<div class="r-stack">
+						<img class="fragment" src="img/process-configuration1.png">
+						<img class="fragment" src="img/process-configuration2.png">
+						<img class="fragment" src="img/process-configuration3.png">
+					</div>
+					<!--<ul>
+						<li>Konfiguration: config.yaml + report.jrxml</li>
+						<li>POST request mit dem json</li>
+						<li>resultiert in dem pdf</li>
+					</ul>-->
+				</section>
+				<section>
+					<h3>Configuration: config.yaml</h3>
+				</section>
+				<section>
+					<h3>Configuration: report.jrxml</h3>
+				</section>
+				<section>
+					<h3>JSON Request<h3>
+				</section>
+			</section>
+			<section>
+				<h3>
+					Erweiterbar dir die Architektur
+				</h3>
+			</section>
+			<section>
+				<h1 class="beefy">MapFish Print 3</h1>
+				<p><span class="fat">MapFish Print auf GitHub:</span><br /><a
+						href="https://github.com/mapfish/mapfish-print"
+						target="_blank">github.com/mapfish/mapfish-print</a></p>
+				<p>&nbsp;</p>
+				<p><span class="fat">UND</span></p>
+				<p>
+					<a href="https://github.com/marionb" target="_blank"><img src="img/github.png"></a> @marionb
+				</p>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
