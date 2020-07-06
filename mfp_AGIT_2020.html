@@ -23,10 +23,17 @@
 				<h3>Maps, Templates and PDF</h3>
 
 				<p>Marion Baumgartner</p>
-				<img src="img/camptocamp_logo_2020_rgb.svg" height="50">
+				<img src="img/camptocamp_logo_2020_rgb.svg" height="50" style="vertical-align: bottom;">
+				<aside class="notes">
+					Self intro:
+					- Arbeite für c2c für 5y
+					- opensource GIS wie GeoMapFish, MapFishPrint
+					- BI application mit geo-daten
+					- neu auch data integration
+				</aside>
 			</section>
 			<section>
-				<h3>About Camptocamp</h3>
+				<img src="img/camptocamp_logo_2020_rgb.svg" height="50">
 				<div class="r-stack">
 					<img src="img/C2C_Structure.png" class="r-frame">
 					<img src="img/hiring.png" class="fragment">
@@ -34,58 +41,101 @@
 			</section>
 			<section>
 				<section>
-					<h3> Printing Maps</h3>
-					<ul>
+					<h2> Printing Maps</h2>
+					<img src="img/Map_icon.svg" height="80%">
+					<ul class="fraction">
 						<li class="fragment">An essential requirement in web mapping solutions</li>
-						<li class="fragment">A list of requirements to fulfill:</li>
+						<li class="fragment">Typical requirements:</li>
 						<ul class="fragment">
 							<li>resolution</li>
-							<li>Format A4, A3, A0, ...</li>
-							<li>Templates and layouts</li>
+							<li>different format (A4, A3, A0, ...)</li>
+							<li>multiple templates and layouts</li>
 							<li>different geo-data</li>
 							<li>...</li>
 						</ul>
 					</ul>
 				</section>
 				<section>
-					<h4>CSS Stylesheets</h4>
+					<h3>CSS Stylesheets</h3>
+					<iframe data-src="img/googleMap.pdf" width="60%" height="400" frameborder="0" marginwidth="0"
+						marginheight="0" scrolling="no"
+						style="border:3px solid #666; margin-bottom:5px; max-width: 100%; float: center;"
+						allowfullscreen> </iframe>
 				</section>
 				<section>
-					<h4>Javascript base in OLv6</h4>
-				</section>
-				<section>
-					<h4>WKHTMLTOPDF</h4>
+					<h3>Javascript base in OL v6</h3>
+					<iframe data-src="img/OpenLayerPDF.png" width="50%" height="500" frameborder="0" marginwidth="0"
+						marginheight="0" scrolling="yes"
+						style="border:0px; margin-bottom:5px; max-width: 100%; float: center; vertical-align: middle;"
+						allowfullscreen>
+					</iframe>
+					<iframe data-src="img/OL_pdf.pdf" width="45%" height="340" frameborder="0" marginwidth="0"
+						marginheight="0" scrolling="no"
+						style="border:3px solid #666; margin-bottom:5px; max-width: 100%; float: center; vertical-align: middle;"
+						allowfullscreen> </iframe>
 				</section>
 			</section>
 			<section>
-				<h3>Map Fish Print</h3>
-				<ul>
+				<h2>Map Fish Print</h2>
+				<ul class="fragment">
 					<li>Java Library & Web application</li>
 					<li>Creation of a PDF with map components</li>
 				</ul>
-				<div>
-					<div class="fragment" style="position: absolute; top: 0px; left: 50px;">
-						<img src="img/PrintExampleMapReportSZ.png" height=300>
-					</div>
-					<div class="fragment" style="position: absolute; top: 0px; right: 50px;">
-						<img src="img/PrintExampleLegendSZ.png" height=300>
-					</div>
-					<div class="fragment">
-						<img src="img/PrintExampleTableBL.png" height=300>
-					</div>
+				<div class="fragment">
+					<iframe data-src="img/MFPExampe_SZ.pdf" width="100%" height="400" frameborder="0" marginwidth="0"
+						marginheight="0" scrolling="yes"
+						style="border:0px; margin-bottom:5px; max-width: 100%; float: left; vertical-align: middle;"
+						allowfullscreen>
+					</iframe>
 				</div>
+				<aside class="notes">
+					- Print Lösung, mit diversen Komponenten und Anwendungen
+				</aside>
 			</section>
 			<section>
-				<h3>Architecture</h3>
-				<img src="img/architecture.png">
+				<h2>Architecture</h2>
+				<table style="font-size:x-large">
+					<tbody>
+						<tr style="border-bottom: 0px solid;">
+							<td style="border-bottom: 0px solid; vertical-align: top; text-align: left">
+								<img src="img/GeoTools.png" width="60%">
+								<br>
+								Mapping
+							</td>
+							<td style="border-bottom: 0px solid; vertical-align: top; text-align: right;">
+								<img src="img/JasperReports.png" width="70%">
+								<br>
+								Layout
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"
+								style="border-bottom: 0px solid; float:center; vertical-align: middle; text-align: center;">
+								<img src="img/Spring.png">
+								<br>
+								Framework
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"
+								style="border-bottom: 0px solid; float:center; vertical-align: middle; text-align: center;">
+								<img src="img/MapFish.png">
+								<br>
+								MapFish Print
+								<br>
+								Web API/ Security /Widgets
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</section>
 			<section>
 				<section>
-					<h3>The Process</h3>
+					<h2>The Process</h2>
 					<div class="r-stack">
-						<img src="img/process-configuration1.png">
-						<img class="fragment" src="img/process-configuration2.png">
-						<img class="fragment" src="img/process-configuration3.png">
+						<img src="img/process.png" width="50%" class="fragment fade-out" data-fragment-index="0">
+						<img src="img/process-ClientServer.png" width="50%" class="fragment current-visible"
+							data-fragment-index="0">
 					</div>
 				</section>
 			</section>
@@ -122,8 +172,12 @@
 				</section>
 			</section>
 			<section>
-				<h3>The Process</h3>
-				<img src="img/process-configuration2.png">
+				<h2>The Process</h2>
+				<div class="r-stack">
+					<img src="img/process.png" width="49%" class="fragment fade-out" data-fragment-index="0">
+					<img src="img/processRequest.png" width="50%" class="fragment current-visible"
+						data-fragment-index="0">
+				</div>
 			</section>
 			<section>
 				<h3>JSON Request</h3>
@@ -162,12 +216,8 @@
 					</code></pre>
 			</section>
 			<section>
-				<h3>The Process</h3>
-				<img src="img/process-configuration3.png">
-			</section>
-			<section>
 				<section>
-					<h3>Setting it all together in a Web-Application</h3>
+					<h2>Setting it all together in a Web-Application</h2>
 					<div class="r-stack">
 						<img src="img/application-server.png">
 						<img src="img/application-server-docker.png" class="fragment">
@@ -189,11 +239,11 @@
 					<ul>
 						<li>
 							Using a Browser:
-							<a href="http://localhost:8680/" >http://localhost:8680/</a>
+							<a href="http://localhost:8680/">http://localhost:8680/</a>
 						</li>
 						<li>
 							Using a bash command:
-							<pre data-id="code-animation" ><code class="hljs" data-trim data-line-numbers>
+							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
 								$ curl -XPOST -d @requestData.json \
 								-H " Content-Type: application/json" \
 								http://localhost:8680/print/default/buildreport.pdf \
@@ -202,6 +252,32 @@
 						</li>
 					</ul>
 				</section>
+			</section>
+			<section>
+				<h2>Suported geo-data</h2>
+				<div class="r-stack">
+					<ul>
+						<li>Vector</li>
+						<ul class="fragment">
+							<li>GML/WFS</li>
+							<li>GeoJSON</li>
+						</ul>
+						<li>Raster</li>
+						<ul class="fragment">
+							<li>XYZ Tiles (OSM, ...)</li>
+							<li>(Tiled) WMS</li>
+							<li>WMTS</li>
+							<li>GeoTIFF</li>
+						</ul>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2>Styles</h2>
+				<ul>
+					<li>Full GeoTools styling with SLD</li>
+					<li>Custom JSON styling (similar to OpenLayers)</li>
+				</ul>
 			</section>
 			<section>
 				<section>
@@ -234,9 +310,29 @@
 			</section>
 			<section>
 				<h2>Plugable Architecture</h2>
-				<dev>
-					<img src="img/Plugable.png" height="500" class="r-frame">
-				</dev>
+				
+				<table width="100%">
+					<tbody style="vertical-align: middle; font-size: xx-large;">
+						<tr>
+							<td style="text-align: right;vertical-align: middle;">Map Layers</td>
+							<td rowspan="3" style="vertical-align: middle; text-align: center;"><img src="img/Plugable.png" width="425"></td>
+							<td style="text-align: left; vertical-align: middle;">Processors</td>
+						</tr>
+						<tr>
+							<td style="text-align: right; vertical-align: middle;">Widget</td>
+							<td style="text-align: left; vertical-align: middle;">Attributes</td>
+						</tr>
+						<tr>
+							<td style="text-align: right; vertical-align: middle;">Output Formats</td>
+							<td style="text-align: left; vertical-align: middle;">Report Storage</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<aside class="notes">
+					The pluggable architecture makes it easier to add new components, e.g. to support a different
+					geo-data format, to create a new report widget, ...
+				</aside>
 			</section>
 			<section>
 				<h1>MapFish Print 3</h1>
@@ -254,7 +350,7 @@
 					<li>
 						<a href="https://github.com/mapfish/mapfish-print/tree/master/examples/src/test/resources/examples"
 							target="_blank">
-							A box of examples:
+							A box of examples
 						</a>
 					</li>
 					<li>

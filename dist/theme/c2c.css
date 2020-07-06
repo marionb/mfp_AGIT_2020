@@ -75,7 +75,7 @@ html * {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #586e75;
+  color: rgba(255, 104, 10, 255);
   font-family: "Lato", Impact, sans-serif;
   font-weight: normal;
   line-height: 1.2;
@@ -216,8 +216,8 @@ html * {
 .reveal table td[align="right"] {
   text-align: right; }
 
-.reveal table tbody tr:last-child th,
-.reveal table tbody tr:last-child td {
+.reveal table tbody tr th,
+.reveal table tbody tr td {
   border-bottom: none; }
 
 .reveal sup {
