@@ -61,6 +61,11 @@
 						marginheight="0" scrolling="no"
 						style="border:3px solid #666; margin-bottom:5px; max-width: 100%; float: center;"
 						allowfullscreen> </iframe>
+					<aside class="notes">
+						+ simple + reuse site stylesheet 
+						<br>
+						- browser page header/footers - no higher DPI - missing tiles? - no 100% control on the layout (pixel-perfect) 
+					</aside>
 				</section>
 				<section>
 					<h3>Javascript base in OL v6</h3>
@@ -73,6 +78,10 @@
 						marginheight="0" scrolling="no"
 						style="border:3px solid #666; margin-bottom:5px; max-width: 100%; float: center; vertical-align: middle;"
 						allowfullscreen> </iframe>
+						<aside class="notes">
+							+ no server involved + higher DPI possible + geo-data is rendered as seen on the map 
+							- layouting programmatically ! CORS (restricted resources)
+						</aside>
 				</section>
 			</section>
 			<section>
@@ -128,6 +137,11 @@
 						</tr>
 					</tbody>
 				</table>
+				<aside class="notes">
+					built on mature open-source libraries: GeoTools for mapping, JasperReports as reporting engine (layouting) and Spring for a plugin architecture. 
+					<br>
+					MFP itself provides a web API and additional report widgets. 
+				</aside>
 			</section>
 			<section>
 				<section>
@@ -143,10 +157,6 @@
 				<section>
 					<h3>Configuration: config.yaml</h3>
 					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|6|7|9-14|16-18">
-						throwErrorOnExtraParameters: true
-						transparentTileErrorColor: "rgba(78, 78, 255, 125)"
-						opaqueTileErrorColor: "rgba(255, 155, 155, 0)"
-
 						templates:
 						  A4 portrait: !template
 							reportTemplate: report.jrxml
