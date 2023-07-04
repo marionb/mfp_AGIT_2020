@@ -33,58 +33,6 @@
 				</aside>
 			</section>
 			<section>
-				<img src="img/camptocamp_logo_2020_rgb.svg" height="50">
-				<div class="r-stack">
-					<img src="img/C2C_Structure.png" class="r-frame">
-					<img src="img/hiring.png" class="fragment">
-				</div>
-			</section>
-			<section>
-				<section>
-					<h2> Printing Maps</h2>
-					<img src="img/Map_icon.svg" height="80%">
-					<ul class="fraction">
-						<li class="fragment">An essential requirement in web mapping solutions</li>
-						<li class="fragment">Typical requirements:</li>
-						<ul class="fragment">
-							<li>resolution</li>
-							<li>different format (A4, A3, A0, ...)</li>
-							<li>multiple templates and layouts</li>
-							<li>different geo-data</li>
-							<li>...</li>
-						</ul>
-					</ul>
-				</section>
-				<section>
-					<h3>CSS Stylesheets</h3>
-					<iframe data-src="img/googleMap.pdf" width="60%" height="400" frameborder="0" marginwidth="0"
-						marginheight="0" scrolling="no"
-						style="border:3px solid #666; margin-bottom:5px; max-width: 100%; float: center;"
-						allowfullscreen> </iframe>
-					<aside class="notes">
-						+ simple + reuse site stylesheet 
-						<br>
-						- browser page header/footers - no higher DPI - missing tiles? - no 100% control on the layout (pixel-perfect) 
-					</aside>
-				</section>
-				<section>
-					<h3>Javascript base in OL v6</h3>
-					<iframe data-src="img/OpenLayerPDF.png" width="50%" height="500" frameborder="0" marginwidth="0"
-						marginheight="0" scrolling="yes"
-						style="border:0px; margin-bottom:5px; max-width: 100%; float: center; vertical-align: middle;"
-						allowfullscreen>
-					</iframe>
-					<iframe data-src="img/OL_pdf.pdf" width="45%" height="340" frameborder="0" marginwidth="0"
-						marginheight="0" scrolling="no"
-						style="border:3px solid #666; margin-bottom:5px; max-width: 100%; float: center; vertical-align: middle;"
-						allowfullscreen> </iframe>
-						<aside class="notes">
-							+ no server involved + higher DPI possible + geo-data is rendered as seen on the map 
-							- layouting programmatically ! CORS (restricted resources)
-						</aside>
-				</section>
-			</section>
-			<section>
 				<h2>Map Fish Print</h2>
 				<ul class="fragment">
 					<li>Java Library & Web application</li>
@@ -156,7 +104,7 @@
 			<section>
 				<section>
 					<h3>Configuration: config.yaml</h3>
-					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|6|7|9-14|16-18">
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|3|4|7-10|11-14|14|13">
 						templates:
 						  A4 portrait: !template
 							reportTemplate: report.jrxml
@@ -193,7 +141,7 @@
 				<h3>JSON Request</h3>
 				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|2|3|4|5|6-29">
 						{
-							"layout": "A4 portrait",
+							"layout": "A4 portrait", <- template from config.yaml
 							"outputFormat": "pdf",
 							"attributes": {
 								"map": {
@@ -234,6 +182,10 @@
 					</div>
 				</section>
 				<section>
+					<h2>A Life Example</h2>
+					...
+				</section>
+				<section>
 					<h3>Using the application in a ready Docker image</h3>
 					<ol>
 						<li> clone the repo:
@@ -264,21 +216,15 @@
 				</section>
 			</section>
 			<section>
-				<h2>Suported geo-data</h2>
+				<h2>Suported Layer Types</h2>
 				<div class="r-stack">
 					<ul>
-						<li>Vector</li>
-						<ul class="fragment">
-							<li>GML/WFS</li>
-							<li>GeoJSON</li>
-						</ul>
-						<li>Raster</li>
-						<ul class="fragment">
-							<li>XYZ Tiles (OSM, ...)</li>
-							<li>(Tiled) WMS</li>
-							<li>WMTS</li>
-							<li>GeoTIFF</li>
-						</ul>
+						<li>GeoJSON
+						<li>GML/WFS</li>
+						<li>GeoTIFF</li>
+						<li>WMS and tiled WMS</li>
+						<li>WMTS</li>
+						<li>XYZ/OSM</li>
 					</ul>
 				</div>
 			</section>
